@@ -1,0 +1,48 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  annotations:
+    serving.knative.dev/creator: steren.demo@gmail.com
+    serving.knative.dev/lastModifier: steren.demo@gmail.com
+  creationTimestamp: '2019-05-20T22:18:46Z'
+  generation: 1
+  name: pdf-service
+  namespace: default
+  resourceVersion: '16752676'
+  selfLink: /apis/serving.knative.dev/v1alpha1/namespaces/default/services/pdf-service
+  uid: 3bf72f52-7b4d-11e9-a6d9-42010aa800e2
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        metadata: {}
+        spec:
+          container:
+            image: gcr.io/run-intro/pdf-service@sha256:5dc18b374a2fc69bc422390bb0536047a858108f2dcdaf27d6189bf50aa46a80
+            name: ''
+            resources:
+              limits:
+                memory: 512Mi
+          containerConcurrency: 80
+          timeoutSeconds: 300
+status:
+  address:
+    hostname: pdf-service.default.svc.cluster.local
+  conditions:
+  - lastTransitionTime: '2019-05-20T22:18:51Z'
+    status: 'True'
+    type: ConfigurationsReady
+  - lastTransitionTime: '2019-05-20T22:18:51Z'
+    status: 'True'
+    type: Ready
+  - lastTransitionTime: '2019-05-20T22:18:51Z'
+    status: 'True'
+    type: RoutesReady
+  domain: pdf-service.default.35-236-52-254.xip.crgke.com
+  domainInternal: pdf-service.default.svc.cluster.local
+  latestCreatedRevisionName: pdf-service-pjkwk
+  latestReadyRevisionName: pdf-service-pjkwk
+  observedGeneration: 1
+  traffic:
+  - percent: 100
+    revisionName: pdf-service-pjkwk
